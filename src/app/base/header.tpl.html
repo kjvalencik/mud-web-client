@@ -1,0 +1,24 @@
+<div class="header">
+	<div class="navbar">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" ng-click="headerExpanded = !headerExpanded">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#/">MUD Client</a>
+		</div>
+		<div class="collapse navbar-collapse" collapse="!headerExpanded">
+			<ul id="nav-menu" class="nav navbar-nav">
+				<li ng-repeat="state in states | has:['url','nav.left'] | auth | isActive | orderBy:'nav.left'" ng-class="{active: state.active}">
+					<a href="#{{state.url}}" ng-bind="state.label"></a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-hide="user.username"><a class="no-href" ng-click="login()">Login</a></li>
+				<li ng-show="user.username"><a class="no-href" ng-click="logout()">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</header>

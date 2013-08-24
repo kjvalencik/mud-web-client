@@ -1,0 +1,15 @@
+<div class="mud-client">
+	<pre class="mud-client-panel" scroll-bottom="" ng-bind-html-unsafe="lines"></pre>
+	<form class="mud-client-send" ng-submit="sendCommand(command)">
+		<input type="text" class="form-control" ng-model="command" />
+		<button type="submit" class="btn btn-primary">Send</button>
+	</form>
+</div>
+<div class="mud-panel">
+	<form ng-submit="commands.connect(host, port)">
+		<input type="text" class="form-control" placeholder="Host" ng-model="host" />
+		<input type="text" class="form-control" placeholder="Port" ng-model="port" />
+		<button type="submit" class="btn btn-info">Connect</button>
+		<a class="btn btn-danger" ng-click="commands.disconnect()">Disconnect</a>
+	</form>
+</div>

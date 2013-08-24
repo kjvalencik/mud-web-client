@@ -1,0 +1,92 @@
+/* Bootstrap styling */
+@import '../../vendor/bootswatch/bower_components/bootstrap/less/bootstrap';
+@import '../../vendor/bootswatch/slate/bootswatch';
+@import '../../vendor/bootswatch/slate/variables';
+
+@import '../../vendor/bootswatch/bower_components/font-awesome/less/font-awesome';
+@FontAwesomePath: ".";
+
+/* Fonts */
+@import url("//fonts.googleapis.com/css?family=Ubuntu");
+@import url("//fonts.googleapis.com/css?family=Ubuntu+Mono");
+@font-family-sans-serif:  "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   "Ubuntu Mono", Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+body {
+	padding-top: 65px;
+}
+
+.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+.page-content {
+	.make-md-column(12);
+}
+
+.no-href {
+	cursor: pointer;
+}
+
+@loginModalWidth: 280px;
+
+.login-modal {
+	.modal-dialog {
+		width: @loginModalWidth;
+	}
+
+	form {
+		margin: 0;
+	}
+
+	.social-login {
+		.unstyled;
+		padding: 0;
+		li a {
+			.btn;
+			.btn-primary;
+
+			cursor: pointer;
+			position: relative;
+			padding-left: 50px;
+			width: 100%;
+
+			span {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 37px;
+				line-height: 37px;
+				font-size: 20px;
+				border-right: 1px solid darken(@btn-primary-border, 10%);
+			}
+		}
+	}
+
+	.alert {
+		margin: 17px 0 -17px 0;
+	}
+}
+
+.header {
+	.navbar {
+		.navbar-fixed-top;
+	}
+}
+
+/* Override to bootstrap for angular-ui-bootstrap */
+.modal {
+	display: block;
+	height: 0;
+	overflow: visible;
+}
+.modal-backdrop {
+	.opacity(.80);
+}
+
+
+/* App Styles */
+@import '../app/home/home.less';

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-controller="mud.AppCtrl" ng-class="{false: 'logged-in', true: 'anonymous'}[!user.username]">
+	<head>
+		<title>MUD Web Client</title>
+
+		<meta property="og:title" content="MUD Web Client" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://mud.valencik.com" />
+		<meta property="og:description" content="MUD Web Client">
+
+		<!-- compiled CSS --><% styles.forEach(function (file) { %>
+		<link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+		<!-- compiled CSS --><% scripts.forEach(function (file) { %>
+		<script type="text/javascript" src="/<%= file %>"></script><% }); %>
+	</head>
+	<body>
+		<div ui-view="header"></div>
+		<div class="page-body">
+			<div class="page-content" ui-view="main"></div>
+			<div ui-if="!!user.username" class="user-list" ui-view="user-list"></div>
+		</div>
+	</body>
+</html>
